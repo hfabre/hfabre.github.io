@@ -40,7 +40,7 @@
         video.src = window.URL.createObjectURL(mediaStream);
         video.onloadedmetadata = function(e) {
         };
-    }, function(err){console.log(err.name);});
+    }, function(err){alert(err.name + ': Make sure that you have enable screen-sharing, and added hfabre.github.io in your whitelist on the page about:config');});
 </script>
 </body>
 </html>
