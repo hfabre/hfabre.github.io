@@ -15,16 +15,16 @@
     <video autoplay id="video"/>
 </p>
 <script language="javascript">
-    var ws_uri = "ws://37.187.105.13:7412/kurento";
-    var kurento = kurentoClient.KurentoClient(ws_uri);
-
-    kurento.then(function (kurento) {
-                console.log('Kurento connexion sucess');
-                kurento.create('MediaPipeline', function (error, pipeline) {
-                    if (error != null) {
-                        console.log('Error while creating Kurento pipeline: ' + error.name);
-                    } else {
-                        console.log('Pipeline successfully created');
+//    var ws_uri = "ws://37.187.105.13:7412/kurento";
+//    var kurento = kurentoClient.KurentoClient(ws_uri);
+//
+//    kurento.then(function (kurento) {
+//                console.log('Kurento connexion sucess');
+//                kurento.create('MediaPipeline', function (error, pipeline) {
+//                    if (error != null) {
+//                        console.log('Error while creating Kurento pipeline: ' + error.name);
+//                    } else {
+//                        console.log('Pipeline successfully created');
                         var constraints = {
                             video: {
                                 mediaSource: "screen",
@@ -39,25 +39,25 @@
                         navigator.getUserMedia(constraints, function (mediaStream) {
                             var video = document.querySelector('video');
                             video.src = window.URL.createObjectURL(mediaStream);
-                            pipeline.create('PlayerEndpoint', {uri: video.src},
-                                    function (error, player) {
-
-                                    });
-                            pipeline.create('HttpGetEndpoint', function (error, httpGet) {
-                                httpGet.on('EndOfStream', function (event) {
-
-                                });
-                            });
-                            console.log(pipeline);
+//                            pipeline.create('PlayerEndpoint', {uri: video.src},
+//                                    function (error, player) {
+//
+//                                    });
+//                            pipeline.create('HttpGetEndpoint', function (error, httpGet) {
+//                                httpGet.on('EndOfStream', function (event) {
+//
+//                                });
+//                            });
+//                            console.log(pipeline);
                         }, function (err) {
                             alert(err.name + ': Make sure that you have enable screen-sharing, and added hfabre.github.io in your whitelist on the page about:config');
                         });
-                    }
-                });
-            },
-            function (error) {
-                console.log('Kurento connexion error: ' + error.name)
-            });
+//                    }
+//                });
+//            },
+//            function (error) {
+//                console.log('Kurento connexion error: ' + error.name)
+//            });
 </script>
 </body>
 </html>
